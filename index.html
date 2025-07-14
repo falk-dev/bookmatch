@@ -1,15 +1,162 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>BookMatch</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMatch - Encontre sua próxima leitura</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
-  <header></header>
-</body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-book-open"></i>
+                    <h1>BookMatch</h1>
+                </div>
+                <p class="tagline">Encontre sua próxima leitura</p>
+            </div>
+        </div>
+    </header>
 
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero">
+                <h2>Descubra livros que combinam com você</h2>
+                <p>Use nossos filtros personalizados ou deixe a sorte decidir sua próxima aventura literária!</p>
+            </section>
+
+            <!-- Filters Section -->
+            <section class="filters-section">
+                <div class="filters-header">
+                    <h3><i class="fas fa-filter"></i> Filtros de Busca</h3>
+                    <button class="clear-filters" onclick="clearFilters()">
+                        <i class="fas fa-times"></i> Limpar Filtros
+                    </button>
+                </div>
+
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="genre">Gênero Literário</label>
+                        <select id="genre" name="genre">
+                            <option value="">Todos os gêneros</option>
+                            <option value="ficcao">Ficção</option>
+                            <option value="romance">Romance</option>
+                            <option value="misterio">Mistério</option>
+                            <option value="fantasia">Fantasia</option>
+                            <option value="biografia">Biografia</option>
+                            <option value="historia">História</option>
+                            <option value="ciencia">Ciência</option>
+                            <option value="autoajuda">Autoajuda</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="age-rating">Classificação Indicativa</label>
+                        <select id="age-rating" name="age-rating">
+                            <option value="">Todas as idades</option>
+                            <option value="livre">Livre</option>
+                            <option value="10">10+ anos</option>
+                            <option value="12">12+ anos</option>
+                            <option value="14">14+ anos</option>
+                            <option value="16">16+ anos</option>
+                            <option value="18">18+ anos</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="rating">Nota Mínima</label>
+                        <select id="rating" name="rating">
+                            <option value="">Qualquer nota</option>
+                            <option value="5">5 estrelas</option>
+                            <option value="4">4+ estrelas</option>
+                            <option value="3">3+ estrelas</option>
+                            <option value="2">2+ estrelas</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="pages">Número de Páginas</label>
+                        <select id="pages" name="pages">
+                            <option value="">Qualquer tamanho</option>
+                            <option value="short">Até 200 páginas</option>
+                            <option value="medium">200-400 páginas</option>
+                            <option value="long">400+ páginas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="searchBooks()">
+                        <i class="fas fa-search"></i> Buscar Livros
+                    </button>
+                    <button class="btn btn-secondary" onclick="randomBook()">
+                        <i class="fas fa-dice"></i> Sorteador de Livros
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="results-section">
+                <div class="results-header">
+                    <h3><i class="fas fa-book"></i> Resultados da Busca</h3>
+                    <span class="results-count" id="results-count">0 livros encontrados</span>
+                </div>
+
+                <div class="books-grid" id="books-grid">
+                    <!-- Loading state -->
+                    <div class="loading" id="loading" style="display: none;">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Buscando livros...</p>
+                    </div>
+
+                    <!-- Empty state -->
+                    <div class="empty-state" id="empty-state">
+                        <i class="fas fa-book-open"></i>
+                        <h4>Nenhum livro encontrado</h4>
+                        <p>Tente ajustar seus filtros ou use o sorteador para descobrir algo novo!</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="project-info">
+                    <h4>📚 Projeto Acadêmico</h4>
+                    <p>Desenvolvido para a disciplina <strong>Construção de Páginas Web II</strong></p>
+                    <p>Curso: Sistemas para Internet</p>
+                </div>
+                <div class="status-info">
+                    <h4>🚧 Status do Projeto</h4>
+                    <p>Em desenvolvimento</p>
+                    <ul>
+                        <li>✅ Interface web criada</li>
+                        <li>🔄 Integração com API em andamento</li>
+                        <li>🔄 Sistema de recomendação em desenvolvimento</li>
+                    </ul>
+                </div>
+                <div class="tech-info">
+                    <h4>🛠️ Tecnologias</h4>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BookMatch - Projeto acadêmico desenvolvido com 💜</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
