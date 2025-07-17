@@ -1,5 +1,3 @@
-const useMockData = false;
-
 // Elementos DOM
 const genreSelect = document.getElementById("genre")
 const ratingSelect = document.getElementById("rating")
@@ -9,63 +7,6 @@ const resultsCount = document.getElementById("results-count")
 const loading = document.getElementById("loading")
 const emptyState = document.getElementById("empty-state")
 
-// Dados mockados para o caso de a API estar indisponível
-const mockBooks = [
-  {
-    id: 1,
-    title: "O Alquimista",
-    author: "Paulo Coelho",
-    genre: "ficcao",
-    rating: 4.5,
-    pages: 163,
-    ageRating: "livre",
-    description: "Uma jornada de autodescoberta através do deserto.",
-  },
-  {
-    id: 2,
-    title: "1984",
-    author: "George Orwell",
-    genre: "ficcao",
-    rating: 4.8,
-    pages: 328,
-    ageRating: "14",
-    description: "Uma distopia sobre vigilância e controle totalitário.",
-  },
-  {
-    id: 3,
-    title: "Harry Potter e a Pedra Filosofal",
-    author: "J.K. Rowling",
-    genre: "fantasia",
-    rating: 4.7,
-    pages: 223,
-    ageRating: "livre",
-    description: "O início da jornada mágica de Harry Potter.",
-  },
-  {
-    id: 4,
-    title: "O Código Da Vinci",
-    author: "Dan Brown",
-    genre: "misterio",
-    rating: 4.2,
-    pages: 454,
-    ageRating: "12",
-    description: "Um thriller envolvendo arte, religião e mistério.",
-  },
-  {
-    id: 5,
-    title: "Sapiens",
-    author: "Yuval Noah Harari",
-    genre: "historia",
-    rating: 4.6,
-    pages: 443,
-    ageRating: "14",
-    description: "Uma breve história da humanidade.",
-  },
-]
-// Problema: Repetição de livros lado a lado
-// Resolução: Criação de uma lista com os ID's dos últimos 5 livros para evitar repetição próxima
-const recentRandomBooksHistory = [];
-const HISTORY_SIZE = 5;
 
 // Inicialize a página
 document.addEventListener("DOMContentLoaded", () => {
