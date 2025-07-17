@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookMatch - Encontre sua próxima leitura</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -55,22 +57,9 @@
                     </div>
 
                     <div class="filter-group">
-                        <label for="age-rating">Classificação Indicativa</label>
-                        <select id="age-rating" name="age-rating">
-                            <option value="">Todas as idades</option>
-                            <option value="livre">Livre</option>
-                            <option value="10">10+ anos</option>
-                            <option value="12">12+ anos</option>
-                            <option value="14">14+ anos</option>
-                            <option value="16">16+ anos</option>
-                            <option value="18">18+ anos</option>
-                        </select>
-                    </div>
-
-                    <div class="filter-group">
                         <label for="rating">Nota Mínima</label>
                         <select id="rating" name="rating">
-                            <option value="">Qualquer nota</option>
+                            <option value="0">Qualquer nota</option>
                             <option value="5">5 estrelas</option>
                             <option value="4">4+ estrelas</option>
                             <option value="3">3+ estrelas</option>
@@ -90,7 +79,7 @@
                 </div>
 
                 <div class="action-buttons">
-                    <button class="btn btn-primary" onclick="searchBooks()">
+                    <button class="btn btn-primary" onclick="initiateNewSearch()">
                         <i class="fas fa-search"></i> Buscar Livros
                     </button>
                     <button class="btn btn-secondary" onclick="randomBook()">
@@ -126,37 +115,14 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="project-info">
-                    <h4>📚 Projeto Acadêmico</h4>
-                    <p>Desenvolvido para a disciplina <strong>Construção de Páginas Web II</strong></p>
-                    <p>Curso: Sistemas para Internet</p>
-                </div>
-                <div class="status-info">
-                    <h4>🚧 Status do Projeto</h4>
-                    <p>Em desenvolvimento</p>
-                    <ul>
-                        <li>✅ Interface web criada</li>
-                        <li>🔄 Integração com API em andamento</li>
-                        <li>🔄 Sistema de recomendação em desenvolvimento</li>
-                    </ul>
-                </div>
-                <div class="tech-info">
-                    <h4>🛠️ Tecnologias</h4>
-                    <div class="tech-tags">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">REST API</span>
-                    </div>
-                </div>
-            </div>
+
             <div class="footer-bottom">
                 <p>&copy; 2024 BookMatch - Projeto acadêmico desenvolvido com 💜</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>
